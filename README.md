@@ -1,2 +1,2 @@
-# analytics
-Documentation and design home for our analytics system.
+# analytics-docs
+Project home for the analytics documentation for SFG's BI system.
