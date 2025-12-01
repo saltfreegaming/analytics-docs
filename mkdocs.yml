@@ -1,0 +1,30 @@
+site_name: "SFG Analytics Platform"
+site_description: "Documentation hub for Salt Free Gaming's business intelligence platform"
+site_url: "https://saltfreegaming.github.io/analytics-docs"
+repo_url: "https://github.com/saltfreegaming/analytics-docs"
+site_dir: static
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - content.code.copy
+nav:
+  - Home: index.md
+  - Strategy:
+      - Platform Roadmap: strategy/platform-roadmap.md
+      - Data Governance: strategy/data-governance.md
+  - Project Management:
+      - Delivery Methodology: project-management/methodology.md
+      - Roles & Collaboration: project-management/roles.md
+  - Platform:
+      - Apache Superset: platform/superset.md
+      - Grafana Logging: platform/grafana.md
+  - Data:
+      - Discord Gateway API: data/discord-gateway.md
+  - Templates & Checklists:
+      - Dashboard Documentation Template: templates-and-checklists/dashboard-template.md
+      - Release Checklist: templates-and-checklists/release-checklist.md
+extra:
+  analytics_phase: "minimum"
