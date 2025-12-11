@@ -12,7 +12,7 @@ Use this template for every Apache Superset dashboard. Copy the sections and fil
 
 ## Purpose & Questions
 - What decision does this dashboard support?
-- Key business questions and success metrics.
+- What questions does this dashboard answer?
 
 ## Data Sources
 - Superset dataset(s) and schemas.

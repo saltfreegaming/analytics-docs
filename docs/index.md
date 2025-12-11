@@ -11,7 +11,7 @@ See [credits](credits.md) for contribution and design information.
 - Provide detailed drilldowns for specific system analysis.
 - Enable observability of complex systems.
 - Establish behavioral understanding of members.
-- Evaluate efficacy of services.
+- Evaluate efficacy of member-facing services (e.g. Dota Inhouses).
 
 ## Scope
 - Long-term behavioral analytics live in **Apache Superset**; short-term operational logs stay in **Grafana**.

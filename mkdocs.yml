@@ -18,17 +18,14 @@ nav:
       - Overview: project-management/stakeholder-overview.md
   - Platform:
       - Apache Superset:
-          - Overview & DoD: platform/superset.md
+          - Software Details: platform/superset.md
           - Style Guidelines: platform/superset-style-guidelines.md
       - Design:
           - Known Limitations: platform/design/limitations.md
-  - Data Sources:
-      - Discord Gateway API: data-sources/discord-gateway.md
   - Dashboards:
-      - Final Dashboard Entries: dashboards/final-dashboard-docs-here.md
+      - Dashboard docs go here...: dashboards/final-dashboard-docs-here.md
   - Templates & Checklists:
-      - Dashboard Feature Request: templates-and-checklists/dashboard-feature-request.md
+      - Dashboard Request: templates-and-checklists/dashboard-request.md
       - Dashboard Documentation Template: templates-and-checklists/dashboard-template.md
-      - Release Checklist: templates-and-checklists/release-checklist.md
 extra:
   analytics_phase: "minimum"
