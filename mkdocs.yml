@@ -16,7 +16,6 @@ nav:
   - Project Management:
       - Dashboard Workflows: project-management/dashboard-workflows.md
       - Overview: project-management/stakeholder-overview.md
-      - Dashboard Requests: project-management/dashboard-requests/index.md
       - Data Entity Taxonomy:
           - Dota Taxonomy: project-management/data-entity-taxonomy/dota-taxonomy.md
       - Decision Briefs:
@@ -28,6 +27,7 @@ nav:
       - Design:
           - Known Limitations: platform/design/limitations.md
   - Dashboards:
+      - Calibration Queue Dashboard: dashboards/calibration-queue-dashboard.md
       - Dashboard docs go here...: dashboards/final-dashboard-docs-here.md
   - Templates & Checklists:
       - Dashboard Request: templates-and-checklists/dashboard-request.md
