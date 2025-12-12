@@ -1,7 +1,9 @@
-**Title:** Investigation Queue for Inaccurate Calibration
-**Owner:** Moderation Team
-**Cadence:** Weekly (with ad-hoc flags nightly)
-**Decision:** Which accounts should enter a human investigation queue for possible enforcement action?
+# Investigation Queue for Inaccurate Calibration
+
+- **Title:** Investigation Queue for Inaccurate Calibration
+- **Owner:** Moderation Team
+- **Cadence:** Weekly (with ad-hoc flags nightly)
+- **Decision:** Which accounts should enter a human investigation queue for possible enforcement action?
 
 ## Options / actions
 - A0: No action (ignore)
