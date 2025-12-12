@@ -35,7 +35,7 @@ Phased roadmap for SFG analytics workstreams. Use this to align stakeholders on 
     - Time-based views (last 14 days, 30 days, season-to-date).
 
 2. **Win rate and performance analytics:**
-    - Overall win rates per member, per team, and per captain.
+    - Overall win rates per member and per captain.
     - Win rates by ticket/league, lineup, and side/position where available.
     - Outlier detection.
 
@@ -46,7 +46,8 @@ Phased roadmap for SFG analytics workstreams. Use this to align stakeholders on 
 
 4. **League health and insights:**
     - Descriptive statistics analyzing win rate deviation.
-    - Matches played per ticket in the last month; retired tickets should be zero.
+    - List matches played per ticket in the last month.
+    - Matches played for retired tickets should be zero.
 
 5. **Steam / account health:**
     - Unaccounted-for Steam accounts that need to be tracked down.
