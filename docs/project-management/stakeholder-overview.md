@@ -105,9 +105,7 @@ Phased roadmap for SFG analytics workstreams. Use this to align stakeholders on 
 
 ## Phase 3 - Club Event Insights
 
-**Status:** Blocked on `club_events` / event system
-
-**Status:** Concept defined; implementation is blocked until the event system is ready.
+**Status:** Blocked on `club_events` / event system; concept defined, implementation is blocked until the event system is ready.
 
 ### Future Scope (Once Unblocked)
 
