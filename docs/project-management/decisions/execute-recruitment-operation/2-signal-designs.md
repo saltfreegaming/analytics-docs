@@ -1,85 +1,111 @@
 # Signal Design: Execute Recruitment Operation
-Player winrates by lobby's rank average
 
 ## Decision
 What decision does this signal design support?
-Inaccurate account calibration
-https://saltfreegaming.github.io/analytics-docs/project-management/decision-briefs/inaccurate-account-calibration/#options-actions
+Execute recruitment operations
+https://github.com/saltfreegaming/analytics-docs/blob/main/docs/project-management/decisions/execute-recruitment-operation/1-decision-brief.md
+
+The key performance indicators for the recruitment portion are as follows:
+
+New member amount
+
+New members that are converted known as fresh members
+
+New member participation (Related to conversion pipeline)
+
 ---
 
 ## Candidate Signals
+| Signal | Definition | Grain | Why It Might Help |
+|------|-----------|-------|------------------|
+| Server population delta | Weekly/Monthly difference for server population | Server x time | Server population and growth used as a information metric (KPI - Server growth) |
+| Server total population | Server population | Server x time | Does not inform the decision (used with above) |
+| Server Growth % | New population in server population % over past months | Server x time  | Does not inform the decision (used with above) | 
+| Server joins (week/month) | Server joins | Server x time | New user joins (raw numbers), required to be tracked, if server joins do not meet a certain number, recruitment operation might be required | 
+
 
 | Signal | Definition | Grain | Why It Might Help |
 |------|-----------|-------|------------------|
-|Division Winrate| Division Winrate | player x division | Detects division overperformance/underperformance |
-|Role Winrate | Winrate per role | player x role | Detects role overperformance/underperformance,overall winrate breakdown|
-|Overall Role Winrates | Winrate per role summed | player x role | Detects overall overperformance/underperformance, sign of mmr inaccuracy |
-| Avg GPM/XPM | Average GPM/XPM performance of player | player x game result | Detects high average performance(win or loss) | 
-| Win-loss GPM/XPM Delta |  Difference in GPM/XPM compared to avg | player x match x avg | Detects variation in performance |
-| Role GPM/XPM Delta | Role based average GPM/XPM | player x role x avg | Controls for role based differences in performance |
-|Lobby rank delta| Lobby average rank difference to player | player x avg lobby rank | controls for variation pertaining to rank advantage |
-| Hero GPM/XPM percentile | Player's hero performance by public percentile | Player x Hero | Indicates the player's performance percentile on a given hero, controls for hero specific factors |
-| Team avg Percentile delta | Deviation from lobby's percentile | match x team x player x hero | Controlling for win/loss variance |
+| Role population | Role population | server x role | Does not inform decision (information metric) | 
+| Role promotion history | Role promotion over time | server x roles x time | new members role assignment + club member role assignment, promotions help to identify club member growth, if there has been no promotions in a period, recruitment operation might be required | 
+| New member Role Age | Age of new member | server x role x age | Age of new members also shows how many new members stayed there, if many new members are old, recruitment operation might be required |
+| Fresh member Role Age | Age of fresh member | server x role x age | Same as above, but to signal if there is no requirement for recruitment operation |
+| Cohort population (Quarterly/ Biannual) | Population of cohorts | Server x time |  Tracking growth and conversion, Does not inform decision (information metric- KPI -Server growth) | 
+| Channel voice hours/minutes | Voice hours per day | Server x channel x time | Representation of activity,  Does not inform the decision (information metric - KPI -Server growth) | 
+| Channel joins (day/week) | User channel joins and where | server x channel | Representation of activity, Total channel joins and location,  Does not inform the decision (information metric)  | 
+| New User messages  | new user messages | server x population + age x messages | Number of messages sent by new users, if there has been no new user messages, signal that a recruitment operation might be required | 
+| new user activity % | new user messages/joins channel (yes/no) | server x population + age x messages | Did a new user interact,if there has been no new user interaction, signal that a recruitment operation might be required | 
+| New user Message breakdown | Messages and where they were sent | server x population + age x messages | Messages and which channels new people interact in, Does not inform the decision (information metric) | 
 
 
 ---
 
 ## Selected Signals
 
-### <Division Winrate>
+### Server joins
 Why this signal was selected:
-This signal was selected as it allows us to reference the spread of lobbies that the player is participating in, as we have the player's calibrated rank.  
-The winrates should be centered around 50% for balanced shuffled lobbies
+This signal shows the amount of new population entering the server
+This captures server growth in its base form, required to contextualise population growth
+What it captures that others do not:
+-base form- 
+
+### Role population / cohort population
+Why this signal was selected: 
+This describes the server population with relation to their role/cohorts, directly showing the number of new server joins in the past months, as well as the population that stayed as new members, promoted to fresh members, and promoted to club members. As well as the inactive population for longer periods of time.
 
 What it captures that others do not:
-This signal would allow us to capture the effect of the lobby's average rank participation, rather than relying solely on ticketed rank segments by event.
+The total number of the poulation that is sitting in a particular role/cohort helps to contextualise the growth in the server and where they are ending up
+Shows the overall health of the new server population
 
-While winrate by ticket allows us to capture the event's winrate, it does not account for the particpants of the lobby and role makeup.
-
-### <Role winrate>
-Why this signal was selected:
-Segmenting the player's winrate to control for variation introduced by role difference, a player hovering at 50% winrate could be a result of having to off-role. 
-Also showing the makeup of a player's winrate total
+### Role promotion history (week/month)
+Why this signal was selected: 
+This allows us to see how many members have been promoted in the past months/weeks. When there has been no promotions for a month, it could be a sign that the existing population of new players are not returning. 
 
 What it captures that others do not:
-Role based winrates being lopsided for specific roles (inaccurate rank calibration)
+Capturing the current intake of fresh members, as well as the new member population that is entering the fresh member territory
+Sign to not promote too many too quickly, as well as when there is no promotions happening
 
-### <Overall Role winrate>
-Why this signal was selected:
-This signal shows a player's overall winrate against the sum of winrates. Thus providing an obvious signal for outlier performance (winrate above 50%, AND high role winrates above 50%) 
-Used with role winrate for detailed breakdown
 
-What it captures that others do not:
-An average performance should hover around 150% total across 3 roles, or lower if anticipated 50%. Captures expected performance, as well as under/over performing players
-
-Top right- High overall winrate, high sum role winrate, 
-Top left- High overall winrate, 1 high role winrate, 2 low winrate, 
-Bottom left- low overall winrate, low role winrate
-Bottom mid-low overall winrate, high role winrate
 
 ---
 
 ## Rejected Signals
 The signals that have not been included are still under consideration
-### <Signal Name>
-Why it was rejected.
-What risk or failure mode it introduces.
+### Server population delta
+Why it was rejected:
+The population that joins the server but does not participate, and does not leave contributes to this number
+What risk or failure mode it introduces:
+Inaccurate representation of server health
+
+
+### Rejected (unrelated)
+| Signal | Definition | Grain | Why It Might Help |
+|------|-----------|-------|------------------|
+| Server Interaction/Engagement | Population in server that interacts with events quantified | server x population x event participation | engagement directly affects server health, low engagement can be addressed by recruitment | 
+| Server Inactivity % | Population in server that is inactive | server x population x duration | checking inactivity duration > outreach health, engagement health, does not inform decision(unrelated) | 
+| Active Population % | Population with active participation | server x population x duration | engagement and retention health, does not inform decision(information metric) | 
+
+Why these signals was rejected:
+Unrelated for recruitment operation
+
+### Server Inactivity 
+Why this signal was selected:
+If the server inactivity rate is going up, that would directly mean that either event retention is low/ needed to be looked at. 
+Additionally, active/inactive time can also be quantified for the server population
+
+What it captures that others do not:
+Inverse of server engagement, effectively capturing "dead" population
 
 ---
 
 ## Guardrails
 Explicit constraints applied:
-- Minimum sample size: 30 games played across events, 10 for individual contexts(balanced shuffle,player draft, roles, lobby brackets)
-- Required context : 
-    Performance still have to be contextualised against the player's calibrated rank, participation in lobbies above their rank should result in a lowered performance
-    Winrates are supposed to be around 50% for balanced shuffle lobbies, but balance shuffle does not account for player roles. 
-- Known exclusions 
+- Recruitment operation should not be carried out if there is sufficent organic growth, additionally, relating to conversion, if there is enough conversion but low organic growth, do not carry out recruitment operation
+- Hence: if new members below x amount(Signal to carry out recruitment), but fresh member above x amount (Good conversion amount), do not carry out recruitment
+- Required context : New members are not necessarily converted to a fresh member, as a means to an end, a recruitment operation is aimed to recruit members which will remain and participate in the server, numbers to be tuned according to server population size
 
 ---
 
-## Known Limitations
-What this **cannot** reliably detect.
-Where human judgment is required.
-The signals cannot reliably detect  an individual's performance and account for their rank solely on gpm/xpm, and might require on an hero basis percentile check. However with limited matches it would not be a large enough sample size for an accurate representation  
+
 
 
